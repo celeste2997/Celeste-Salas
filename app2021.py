@@ -8,13 +8,10 @@ import tensorflow as tf
 import datetime as dt
 from datetime import datetime
 from keras.models import load_model
-from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, TensorBoard
 import tensorflow.keras as keras
 from sklearn.preprocessing import StandardScaler
-from keras.callbacks import EarlyStopping
 import numpy as np
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
-from matplotlib.figure import Figure
+
 from data_preparation import data_processing
 from build_model import build_model_st, plot_predictions, model_prediction, load_best_model
 best_model = load_best_model('best_model.h5')
@@ -54,16 +51,27 @@ def main():
 			X_train = []
 			y_train = []   
 
+			st.subheader("Seleccione el número de días pasados a tener en cuenta para la predicción")
+
+			number1 = (st.number_input("# días",max_value=12, min_value=3, step=1))
+				#st.subheader('Número de días a predecir: ',number)
+				
+			past =(int(number1)*24)
 			st.subheader("Seleccione el número de días a predecir a futuro")
 
-			number = (st.number_input("Número de días",max_value=20, min_value=1, step=1))
+			number = (st.number_input(" # días",max_value=20, min_value=1, step=1))
 				#st.subheader('Número de días a predecir: ',number)
 				
 			pred_h =(int(number)*24)
 
+
+
+
+
+
 			if pred_h is not None:
 				#global n_future   # Number of days we want top predict into the future
-				n_past = 360     # Number of past days we want to use to predict the future
+				n_past = past     # Number of past days we want to use to predict the future
 					#input_future =0
 				n_future = pred_h
 					#print(input_future, n_future)

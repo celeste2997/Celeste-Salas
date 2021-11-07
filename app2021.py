@@ -26,21 +26,21 @@ def main():
 
 
 	if choice == "Inicio":
-		st.subheader("A continuación se realizará la predicción del peso implementando un modelo Bidireccional LSTM entrenado y guardado en la nube con el fin de reentrenarlo a través de interfaz gráfica usando nuevos datos de la colmena.") 
-		st.subheader("Por favor escoja un archivo *.csv que contenga el registro de las variables ambientales tomadas de la colmena artificial.")
+		st.subheader("A continuación se realizará la predicción del peso implementando un modelo Bidireccional LSTM entrenado y guardado en un repositorio de GitHub.") 
+		st.subheader("Por favor escoja un archivo *.csv que contenga el registro de las variables ambientales tomadas de la colmena artificial (Temperatura, humedad, estación y peso.")
 
 		data_file = st.file_uploader("ARCHIVO.csv", type=['csv'])
 		if data_file is not None:
+			
+			st.write("La actualización de la predicción se realiza cada vez se ingrese un archivo y cuando hay actualización en los días pasados y futuros ingresados posteriormente.")
+
 			file_details = {"filename": data_file.name}
 
-			st.write("La actualización de la predicción se realiza cada vez se ingrese un archivo y cuando hay actualización en los días pasados y futuros ingresados posteriormente.")
 
 			dataset_train1, datelist_train, dataset_train_timeindex, df1,training_set= data_processing(data_file)
 			
 			dias_reg =len(datelist_train)
 			d_r=int((dias_reg)/24)
-			
-			val_max = int((d_r/2)-1)
 
 			st.subheader("Tabla base de datos cargada por el usuario:")
 			st.dataframe(df1)
@@ -54,22 +54,22 @@ def main():
 			y_train = []   
 
 			st.subheader("La cantidad del número de días pasados y futuros aceptados para el entrenamiento dependen de la cantidad de datos registrados en la base de datos subida por el usuario.")
+			st.subheader("Para realizar predicciones con los valores máximos permitidos para la predicción se requiere mínimo 50 días de datos.")
+
 			st.subheader('Número de días registrados en el archivo es: ')
 			st.write(d_r)
-			st.subheader("Seleccione el número de días pasados a tener en cuenta para la predicción a futuro:")
+			
+			st.subheader("Seleccione el número de días pasados a tener en cuenta para la predicción a futuro: Para realizar predicciones con los valores máximos permitidos se requiere mínimo 50 días de datos")
 
-			number1 = (st.number_input("# días",max_value=val_max, min_value=3, step=1))
+			number1 = (st.number_input("# días",max_value=15, min_value=3, step=1))
 				#st.subheader('Número de días a predecir: ',number)
 				
 			past =(int(number1)*24)
+			pred_h =(int(number)*24)
 			st.subheader("Seleccione el número de días para predecir el peso de la colmena en el futuro:")
 
-			number = (st.number_input(" # días",max_value=30, min_value=1, step=1))
+			number = (st.number_input(" # días",max_value=12, min_value=1, step=1))
 				#st.subheader('Número de días a predecir: ',number)
-				
-			pred_h =(int(number)*24)
-
-
 
 			if pred_h is not None:
 				#global n_future   # Number of days we want top predict into the future

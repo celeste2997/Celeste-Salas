@@ -62,7 +62,7 @@ def main():
 			st.subheader("Para realizar predicciones con los valores máximos permitidos para la predicción se requiere mínimo 50 días de datos.")
 
 			
-			st.subheader("Para realizar predicciones con los valores máximos permitidos se requiere mínimo 50 días de datos. Seleccione el número de días pasados a tener en cuenta para la predicción a futuro: ")
+			st.subheader("Seleccione el número de días pasados a tener en cuenta para la predicción a futuro: ")
 
 			number1 = (st.number_input("# días",max_value=15, min_value=2, step=1))
 				#st.subheader('Número de días a predecir: ',number)

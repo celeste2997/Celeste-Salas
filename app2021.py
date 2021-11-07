@@ -98,13 +98,14 @@ def main():
 				
 				#dfp=pd.DataFrame(PREDICTIONS_FUTURE)
 				#st.download_button(label='Descargar predicción',data=PREDICTIONS_FUTURE,file_name='Predicción_GUI.txt')
+				
+				st.subheader("Peso predicho por las redes Bidireccionales LSTM")
 
 				st.write("Peso predicho en Kg",PREDICTIONS_FUTURE)
 
 				fig1 = plt.figure(figsize=(5,3)) # try different values
 				ax = plt.axes()
 				#ax.legend()
-				st.subheader("Peso predicho por las redes Bidireccionales LSTM")
 				ax.plot(PREDICTIONS_FUTURE.index, PREDICTIONS_FUTURE['weight'], color='r')
 
 				plt.gcf().autofmt_xdate()

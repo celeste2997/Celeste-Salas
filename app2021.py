@@ -27,7 +27,7 @@ def main():
 
 	if choice == "Inicio":
 		st.subheader("A continuación se realizará la predicción del peso implementando un modelo Bidireccional LSTM entrenado y guardado en un repositorio de GitHub.") 
-		st.subheader("Por favor escoja un archivo *.csv que contenga el registro de las variables ambientales tomadas de la colmena artificial (temperatura, humedad, estación y peso.)")
+		st.subheader("Por favor escoja un archivo *.csv que contenga el registro de las variables ambientales tomadas de la colmena artificial (temperatura, humedad, estación y peso).")
 
 		data_file = st.file_uploader("ARCHIVO.csv", type=['csv'])
 		if data_file is not None:

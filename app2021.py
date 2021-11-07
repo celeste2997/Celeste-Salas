@@ -68,12 +68,13 @@ def main():
 				#st.subheader('Número de días a predecir: ',number)
 				
 			past =(int(number1)*24)
-			pred_h =(int(number)*24)
+			
 			st.subheader("Seleccione el número de días para predecir el peso de la colmena en el futuro:")
 
 			number = (st.number_input(" # días",max_value=12, min_value=1, step=1))
 				#st.subheader('Número de días a predecir: ',number)
-
+			pred_h =(int(number)*24)
+			
 			if pred_h is not None:
 				#global n_future   # Number of days we want top predict into the future
 				n_past = past     # Number of past days we want to use to predict the future

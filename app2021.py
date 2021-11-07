@@ -54,14 +54,17 @@ def main():
 			y_train = []   
 
 			st.subheader("La cantidad del número de días pasados y futuros aceptados para el entrenamiento dependen de la cantidad de datos registrados en la base de datos subida por el usuario.")
-			st.subheader("Para realizar predicciones con los valores máximos permitidos para la predicción se requiere mínimo 50 días de datos.")
 
 			st.subheader('Número de días registrados en el archivo es: ')
 			st.write(d_r)
 			
-			st.subheader("Seleccione el número de días pasados a tener en cuenta para la predicción a futuro: Para realizar predicciones con los valores máximos permitidos se requiere mínimo 50 días de datos")
+			
+			st.subheader("Para realizar predicciones con los valores máximos permitidos para la predicción se requiere mínimo 50 días de datos.")
 
-			number1 = (st.number_input("# días",max_value=15, min_value=3, step=1))
+			
+			st.subheader("Para realizar predicciones con los valores máximos permitidos se requiere mínimo 50 días de datos. Seleccione el número de días pasados a tener en cuenta para la predicción a futuro: ")
+
+			number1 = (st.number_input("# días",max_value=15, min_value=2, step=1))
 				#st.subheader('Número de días a predecir: ',number)
 				
 			past =(int(number1)*24)

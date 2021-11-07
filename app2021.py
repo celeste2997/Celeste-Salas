@@ -99,9 +99,11 @@ def main():
 				#dfp=pd.DataFrame(PREDICTIONS_FUTURE)
 				#st.download_button(label='Descargar predicción',data=PREDICTIONS_FUTURE,file_name='Predicción_GUI.txt')
 				
-				st.subheader("Peso predicho por las redes Bidireccionales LSTM")
+				st.subheader("Predicción por redes Bidireccionales LSTM")
 
 				st.write("Peso predicho en Kg",PREDICTIONS_FUTURE)
+				
+				st.subheader("Gráfica predicción del peso predicho.")
 
 				fig1 = plt.figure(figsize=(5,3)) # try different values
 				ax = plt.axes()
